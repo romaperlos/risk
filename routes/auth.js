@@ -46,6 +46,7 @@ router
         return failAuth(res)
       }
       req.session.user = serializeUser(user)
+      if (user.admin) req.session.user.isAdmin = true
     } catch (err) {
       logger.error(err)
       return failAuth(res)
@@ -59,7 +60,7 @@ router
   .get((req, res) => res.render('signup', { isSignup: true }))
   // Регистрация пользователя
   .post(async (req, res) => {
-    const { username, password, email } = req.body
+    const { username, password, email, admin } = req.body
     try {
       // Мы не храним пароль в БД, только его хэш
       const saltRounds = Number(process.env.SALT_ROUNDS ?? 10)
@@ -67,9 +68,10 @@ router
       const user = await User.create({
         username,
         password: hashedPassword,
-        email
+        email,
+        admin: false
       })
-      req.session.user = serializeUser(user)
+      // req.session.user = serializeUser(user)
     } catch (err) {
       logger.error(err)
       return failAuth(res)
