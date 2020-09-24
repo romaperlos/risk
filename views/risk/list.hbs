@@ -14,23 +14,16 @@
       <th>Действия</th>
     </tr>
     <!-- сверить переменную списка всех рисков -->
-    {{!-- {{#each riskArr}} --}}
+    {{#each riskAll}}
     <tr class="one-risk">
-      <td>наш риск</td>
-      <td>наш статус</td>
-      <td>наш уровень риска</td>
-
-
-      {{!-- <td>{{this.riskName}}</td> --}}
-      {{!-- <td>{{this.status}}</td> --}}
-      {{!-- <td>{{this.riskLevel}}</td> --}}
+      <td>{{this.riskName}}</td>
+      <td>{{this.status}}</td>
+      <td>{{this.level}}</td>
       <td class="risk-links">
-        <div><a href="/riskList/edit">Редактировать</a></div>
-        <div><a href="/riskList/delete">Удалить</a></div>
-        <!-- <div><a href="riskList/edit/{{this.id}}">Редактировать</a></div> -->
-        <!-- <div><a href="riskList/delete/{{this.id}}">Удалить</a></div> -->
+        <div><a href="riskList/edit/{{this._id}}">Редактировать</a></div>
+        <div><a href="riskList/delete/{{this._id}}">Удалить</a></div>
       </td>
     </tr>
-    {{!-- {{/each}} --}}
+    {{/each}}
   </table>
 </main>

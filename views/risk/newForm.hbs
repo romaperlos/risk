@@ -3,67 +3,76 @@
   <form id="newForm" method="POST" action="/riskList/newForm">
     {{#if isAdmin}}
     <div>
-      <label>Статус:
+      <label><strong>Статус:</strong>
         <input name="approval" type="checkbox" value="approved">Утверждён
       </label>
     </div>
     {{/if}}
     <div>
-      <label>Вид налога:
+      <label><strong></strong>Вид налога:</strong>
         <select size="1" name="tax">
-          <option value="Налог на добавленную стоимость">Налог на добавленную стоимость</option>
-          <option value="Акцизы на этиловый спирт, алкогольную и (или) подакцизную спиртосодержащую продукцию">
-            Акцизы на этиловый спирт, алкогольную и (или) подакцизную спиртосодержащую продукцию</option>
-          <option value="Налог на прибыль организаций">Налог на прибыль организаций</option>
-          <option value="Сбор за пользование объектами животного мира">Сбор за пользование объектами животного мира
-          </option>
+          {{#each taxTypesArr}}
+          <option value="{{description}}"> {{description}}</option>
+          {{/each}}
         </select>
       </label>
     </div>
     <div>
-      <label>Наименование риска:
+      <label><strong>Наименование риска:</strong>
         <input name="riskName" type="text">
       </label>
     </div>
     <div>
-      <label>Описание:
+      <label><strong>Описание:</strong>
         <input name="riskDescription" type="text">
       </label>
     </div>
     <div>
-      <label>Операция или группа операций (приводящих к риску):
-        <select size="2" multiple name="riskOperation">
-          <option value="Вознаграждение за открытие и ведение банковских счетов">Вознаграждение за открытие и ведение
-            банковских счетов</option>
-          <option value="Формирование налоговой отчетности  по налогу на прибыль">Формирование налоговой отчетности по
-            налогу на прибыль</option>
+      <label><strong>Операция или группа операций (приводящих к риску):</strong>
+        {{#each operationsArr}}
+        <div><input name="riskOperation" type="checkbox" value="{{description}}"> {{description}}</div>
+        {{/each}}
+      </label>
+    </div>
+    <div>
+      <label><strong>Cпособ выявления:</strong>
+        {{#each wayDetectionArr}}
+        <div><input name="wayDetection" type="checkbox" value="{{description}}"> {{description}}</div>
+        {{/each}}
+      </label>
+    </div>
+    <div>
+      <label><strong>Источник:</strong>
+        {{#each sourcesArr}}
+        <div><input name="source" type="checkbox" value="{{description}}"> {{description}}</div>
+        {{/each}}
+      </label>
+    </div>
+    <div>
+      <label><strong>Частота возникновения в прошлом:</strong>
+        <select size="1" name="frequency">
+          {{#each frequenciesArr}}
+          <option value="{{level}}"> {{description}}</option>
+          {{/each}}
         </select>
       </label>
     </div>
     <div>
-      <label>Cпособ выявления (вариант: меню):
-        <select multiple size="6" name="wayDetection">
-          <option value="Опросный лист">Опросный лист</option>
-          <option value="Анализ входящих данных">Анализ входящих данных</option>
-          <option value="Анализ графических данных">Анализ графических данных</option>
-          <option value="Консультации специалистов">Консультации специалистов</option>
-          <option value="Инспекционная и ревизионная деятельность">Инспекционная и ревизионная деятельность</option>
-          <option value="Неверное распределение доходов по видам">Неверное распределение доходов по видам</option>
+      <label><strong>Вероятность:</strong>
+        <select size="1" name="probability">
+          {{#each probabilitiesArr}}
+          <option value="{{level}}"> {{description}}</option>
+          {{/each}}
         </select>
       </label>
     </div>
     <div>
-      <label>Cпособ выявления (вариант: checkbox):
-        <div><input name="wayDetection" type="checkbox" value="Опросный лист">Опросный лист</div>
-        <div><input name="wayDetection" type="checkbox" value="Анализ входящих данных">Анализ входящих данных</div>
-        <div><input name="wayDetection" type="checkbox" value="Анализ графических данных">Анализ графических данных
-        </div>
-        <div><input name="wayDetection" type="checkbox" value="Консультации специалистов">Консультации специалистов
-        </div>
-        <div><input name="wayDetection" type="checkbox" value="Инспекционная и ревизионная деятельность">Инспекционная и
-          ревизионная деятельность</div>
-        <div><input name="wayDetection" type="checkbox" value="Неверное распределение доходов по видам">Неверное
-          распределение доходов по видам</div>
+      <label><strong>Последствия:</strong>
+        <select size="1" name="effect">
+          {{#each effectsArr}}
+          <option value="{{level}}"> {{description}}</option>
+          {{/each}}
+        </select>
       </label>
     </div>
     <button type="submit">Добавить</button>

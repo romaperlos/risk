@@ -22,6 +22,7 @@ app.set('session cookie name', 'sid')
 
 app.use(express.static('public'))
 app.use(express.json())
+app.use(express.urlencoded({ extended: true })); // добавил парсер для req.body (Антон)
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
