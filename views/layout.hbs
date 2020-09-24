@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Express аутентификация</title>
+  <title>Risk register</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   {{#if isSignin}}
@@ -20,19 +20,18 @@
     <li class="nav-item">
       <a class="nav-link" href="/">Главная</a>
     </li>
-    {{#if username}}
+    {{#if isAdmin}}
     <li class="nav-item">
-      <a class="nav-link" href="/private">Конфиденциальная информация</a>
+      <a class="nav-link" href="/signup">Зарегистрироваться</a>
     </li>
+    {{/if}}
+    {{#if username}}
     <li class="nav-item">
       <a class="nav-link" href="/signout">Выйти</a>
     </li>
     {{else}}
     <li class="nav-item">
       <a class="nav-link" href="/signin">Войти</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/signup">Зарегистрироваться</a>
     </li>
     {{/if}}
   </ul>

@@ -5,8 +5,8 @@ import './misc/env.js'
 import './misc/db.js'
 import indexRouter from './routes/index.js'
 import authRouter from './routes/auth.js'
-import privateRouter from './routes/private.js'
 import userMiddleware from './middlewares/user.js'
+import adminMiddleware from './middlewares/admin.js'
 import notFoundMiddleware from './middlewares/notfound.js'
 import errorMiddleware from './middlewares/error.js'
 
@@ -39,10 +39,9 @@ app.use(
   })
 )
 app.use(userMiddleware)
-
+app.use(adminMiddleware)
 app.use(indexRouter)
 app.use(authRouter)
-app.use('/private', privateRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)

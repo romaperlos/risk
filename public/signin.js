@@ -30,7 +30,7 @@ document.forms.signinForm?.addEventListener('submit', async event => {
   if (response.status !== 200) {
     return failSignin(event.target)
   }
-  return window.location.assign('/private')
+  return window.location.assign('/')
 })
 
 // Очищаем кастомные сообщения об ошибках при новом вводе
@@ -45,3 +45,4 @@ if (document.forms.signinForm) {
     })
   )
 }
+
