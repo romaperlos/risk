@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 mongoose.pluralize(null);
 
-const risks = new mongoose.Schema({
+const risk = new mongoose.Schema({
   taxType: { type: String },
   riskName: { type: String, required: true },
   riskDescription: { type: String, required: true },
@@ -18,6 +18,6 @@ const risks = new mongoose.Schema({
   dataCreate: { type: Date },
 });
 
-const operationsModel = mongoose.model('risks', risks);
+const riskModel = mongoose.model('risk', risk);
 
-export default operationsModel;
+export default riskModel;
