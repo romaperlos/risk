@@ -46,5 +46,5 @@ app.use(authRouter)
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
 
-const port = process.env.PORT ?? 3000
+const port = process.env.PORT
 app.listen(port)
