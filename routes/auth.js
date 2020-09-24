@@ -45,6 +45,7 @@ router
       if (!isValidPassword) {
         return failAuth(res)
       }
+      res.cookie('cookieName','123124', { maxAge: 900000, httpOnly: true })
       req.session.user = serializeUser(user)
       if (user.admin) req.session.user.isAdmin = true
     } catch (err) {
