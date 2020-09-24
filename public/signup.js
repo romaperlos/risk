@@ -31,7 +31,7 @@ document.forms.signupForm?.addEventListener('submit', async event => {
   if (response.status !== 200) {
     return failSignup(event.target)
   }
-  return window.location.assign('/private')
+  return window.location.assign('/')
 })
 
 // Очищаем кастомные сообщения об ошибках при новом вводе
