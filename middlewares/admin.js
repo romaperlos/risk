@@ -1,4 +1,4 @@
 export default (req, res, next) => {
-  res.locals.isAdmin = req.session.user?.isAdmin
+  if (req.session.user) res.locals.isAdmin = req.session.user.isAdmin
   next()
 }
