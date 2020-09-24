@@ -1,6 +1,6 @@
 import express from 'express'
 import session from 'express-session'
-import sessionFileStore from 'session-file-store'
+// import sessionFileStore from 'session-file-store'
 import './misc/env.js'
 import './misc/db.js'
 import indexRouter from './routes/index.js'
@@ -14,7 +14,7 @@ import errorMiddleware from './middlewares/error.js'
 
 const logger = console
 const app = express()
-const FileStore = sessionFileStore(session)
+// const FileStore = sessionFileStore(session)
 
 app.set('view engine', 'hbs')
 // Запоминаем название куки для сессий
@@ -26,10 +26,10 @@ app.use(
   session({
     name: app.get('session cookie name'),
     secret: process.env.SESSION_SECRET,
-    store: new FileStore({
-      // Шифрование сессии
-      secret: process.env.SESSION_SECRET
-    }),
+    // store: new FileStore({
+    //   // Шифрование сессии
+    //   secret: process.env.SESSION_SECRET
+    // }),
     // Если true, сохраняет сессию, даже если она не поменялась
     resave: false,
     // Если false, куки появляются только при установке req.session
