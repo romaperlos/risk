@@ -33,8 +33,7 @@ app.use(
     // Если true, сохраняет сессию, даже если она не поменялась
     resave: false,
     // Если false, куки появляются только при установке req.session
-    saveUninitialized: false,
-    // cookie: { secure: false, httpOnly: true, key: 'racooncookie' }
+    saveUninitialized: false
   })
 )
 
@@ -42,8 +41,8 @@ app.use(userMiddleware)
 app.use(adminMiddleware)
 app.use(indexRouter)
 app.use(authRouter)
-app.use('/riskList', riskListRouter); // добавил новый роутер реестра рисков (Антон)
-app.use('/report', reportListRouter); // роут на отчет (Вадим)
+app.use('/riskList', riskListRouter) // добавил новый роутер реестра рисков (Антон)
+// app.use('/report', reportListRouter) // роут на отчет (Вадим)
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)

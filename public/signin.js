@@ -45,4 +45,3 @@ if (document.forms.signinForm) {
     })
   )
 }
-
