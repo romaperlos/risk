@@ -1,20 +1,19 @@
 import express from 'express'
 import session from 'express-session'
-// import sessionFileStore from 'session-file-store'
+import mongoose from 'mongoose'
+import MongoStore from 'connect-mongo'
 import './misc/env.js'
 import './misc/db.js'
 import indexRouter from './routes/index.js'
 import authRouter from './routes/auth.js'
 import riskListRouter from './routes/riskList.js' // добавил импорт на новый роутер реестра рисков (Антон)
-
 import userMiddleware from './middlewares/user.js'
 import adminMiddleware from './middlewares/admin.js'
 import notFoundMiddleware from './middlewares/notfound.js'
 import errorMiddleware from './middlewares/error.js'
 
-const logger = console
 const app = express()
-// const FileStore = sessionFileStore(session)
+const FileStore = MongoStore(session)
 
 app.set('view engine', 'hbs')
 // Запоминаем название куки для сессий
@@ -26,10 +25,11 @@ app.use(
   session({
     name: app.get('session cookie name'),
     secret: process.env.SESSION_SECRET,
-    // store: new FileStore({
-    //   // Шифрование сессии
-    //   secret: process.env.SESSION_SECRET
-    // }),
+    store: new FileStore({
+      // Шифрование сессии
+      mongooseConnection: mongoose.connection,
+      secret: process.env.SESSION_SECRET
+    }),
     // Если true, сохраняет сессию, даже если она не поменялась
     resave: false,
     // Если false, куки появляются только при установке req.session
