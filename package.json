@@ -24,6 +24,7 @@
   "homepage": "https://github.com/romaperlos/risk#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
