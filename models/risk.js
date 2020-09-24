@@ -1,21 +1,23 @@
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-// mongoose.pluralize(null);
+mongoose.pluralize(null);
 
-// const risks = new mongoose.Schema({
-//   taxType: { type: String },
-//   riskName: { type: String, required: true },
-//   riskDescription: { type: String, required: true },
-//   operations: [{ type: String }],
-//   wayDetection: [{ type: String }],
-//   riskSource: [{ type: String }],
-//   frequency: { type: Number, default: 1 || 2 || 3 },
-//   probability: { type: Number, default: 1 || 2 || 3 },
-//   effects: { type: Number, default: 1 || 2 || 3 },
-//   level: { type: String, default: 'Низкий' || 'Средний' || 'Высокий' },
-//   acceptability: {type}
-// });
+const risks = new mongoose.Schema({
+  taxType: { type: String },
+  riskName: { type: String, required: true },
+  riskDescription: { type: String, required: true },
+  riskOperations: [{ type: String }],
+  wayDetection: [{ type: String }],
+  riskSource: [{ type: String }],
+  frequency: { type: Number },
+  probability: { type: Number },
+  effects: { type: Number },
+  level: { type: String, default: 'Низкий' },
+  acceptability: { type: String, default: 'Приемлемый' },
+  status: { type: String, default: 'Создан' },
+  dataCreate: { type: Date },
+});
 
-// const operationsModel = mongoose.model('risks', risks);
+const operationsModel = mongoose.model('risks', risks);
 
-// export default operationsModel;
+export default operationsModel;

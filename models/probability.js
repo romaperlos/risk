@@ -5,6 +5,7 @@ mongoose.pluralize(null);
 
 const probability = new mongoose.Schema({
   level: Number,
+  description: String,
 })
 
 const probabilityModel = mongoose.model('probability', probability)
