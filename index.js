@@ -5,6 +5,9 @@ import './misc/env.js'
 import './misc/db.js'
 import indexRouter from './routes/index.js'
 import authRouter from './routes/auth.js'
+import riskListRouter from './routes/riskList.js' // добавил импорт на новый роутер реестра рисков (Антон)
+import privateRouter from './routes/private.js'
+
 import userMiddleware from './middlewares/user.js'
 import adminMiddleware from './middlewares/admin.js'
 import notFoundMiddleware from './middlewares/notfound.js'
@@ -42,6 +45,9 @@ app.use(userMiddleware)
 app.use(adminMiddleware)
 app.use(indexRouter)
 app.use(authRouter)
+app.use('/riskList', riskListRouter) // добавил новый роутер реестра рисков (Антон)
+app.use('/private', privateRouter)
+
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
