@@ -21,9 +21,9 @@ db
     const wayDetection = ["Опросный лист", "Анализ входящих данных", "Анализ графических данных", "Консультации специалистов", "Инспекционная и ревизионная деятельность", "Неверное распределение доходов по видам"];
 
     const frequencyProbabilityEffects = [
-      { level: 1, description: 'Низкий' },
-      { level: 2, description: 'Средний' },
-      { level: 3, description: 'Высокий' }];
+      { level: 1, description: 'Низкий(ая)' },
+      { level: 2, description: 'Средний(яя)' },
+      { level: 3, description: 'Высокий(ая)' }];
 
     const acceptabilityLvl = ['Приемлемый', 'Неприемлемый']
 
