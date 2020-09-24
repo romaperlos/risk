@@ -34,12 +34,14 @@ app.use(
     resave: false,
     // Если false, куки появляются только при установке req.session
     saveUninitialized: false,
+    // cookie: { secure: false, httpOnly: true, key: 'racooncookie' }
     cookie: {
       // В продакшне нужно "secure: true" для HTTPS
-      secure: process.env.NODE_ENV === 'production'
+      secure: process.env.NODE_ENV === 'production', httpOnly: true
     }
   })
 )
+
 app.use(userMiddleware)
 app.use(adminMiddleware)
 app.use(indexRouter)
