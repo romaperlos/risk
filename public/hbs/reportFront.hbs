@@ -1,0 +1,37 @@
+<main id="reportContent">
+  {{!-- отрисовка отчета в виде таблицы --}}
+  <table class="report">
+    <tr>
+      <th>Статус</th>
+      <th>Дата создания</th>
+      <th>Наименование риска</th>
+      <th>Описание риска</th>
+      <th>Вид налога</th>
+      <th>Операция или группа операций</th>
+      <th>Способ выявления</th>
+      <th>Источник</th>
+      <th>Частота возникновения в прошлом</th>
+      <th>Вероятность наступления</th>
+      <th>Последствия</th>
+      <th>Уровень риска</th>
+      <th>Соотношение уровня с границей приемлемости </th>
+    </tr>
+    {{#each obj}}
+    <tr class="one-risk">
+      <td>{{obj.status}}</td>
+      <td>{{obj.dataCreate}}</td>
+      <td>{{obj.riskName}}</td>
+      <td>{{obj.riskDescription}}</td>
+      <td>{{obj.taxType}}</td>
+      <td>{{obj.riskOperations}}</td>
+      <td>{{obj.wayDetection}}</td>
+      <td>{{obj.riskSource}}</td>
+      <td>{{obj.frequency}}</td>
+      <td>{{obj.probability}}</td>
+      <td>{{obj.effects}}</td>
+      <td>{{obj.level}}</td>
+      <td>{{obj.acceptability}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</main>

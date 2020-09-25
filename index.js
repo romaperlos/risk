@@ -7,7 +7,7 @@ import './misc/db.js'
 import indexRouter from './routes/index.js'
 import authRouter from './routes/auth.js'
 import riskListRouter from './routes/riskList.js' // добавил импорт на новый роутер реестра рисков (Антон)
-// import reportListRouter from './routes/report'; // импорт роута отчета
+// import reportListRouter from './routes/reports.js'; // импорт роута отчета
 import userMiddleware from './middlewares/user.js'
 import adminMiddleware from './middlewares/admin.js'
 import notFoundMiddleware from './middlewares/notfound.js'
@@ -44,10 +44,11 @@ app.use(adminMiddleware)
 app.use(indexRouter)
 app.use(authRouter)
 app.use('/riskList', riskListRouter) // добавил новый роутер реестра рисков (Антон)
-// app.use('/report', reportListRouter) // роут на отчет (Вадим)
+// app.use('/reports', reportListRouter) // роут на отчет (Вадим)
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
 
 const port = process.env.PORT
+
 app.listen(port)
