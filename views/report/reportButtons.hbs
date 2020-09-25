@@ -2,7 +2,7 @@
 
   <form action="">
     <label><strong></strong>Вид налога:</strong>
-      <select size="1" name="tax">
+      <select id="taxId" size="1" name="tax">
         {{#each taxTypeArray}}
         <option value="{{description}}"> {{description}}</option>
         {{/each}}
@@ -12,7 +12,7 @@
 
   <form action="">
     <label><strong></strong>Уровень риска:</strong>
-      <select size="1" name="tax">
+      <select id="levelId" size="1" name="level">
         {{#each levelModelArray}}
         <option value="{{description}}"> {{description}}</option>
         {{/each}}
@@ -22,7 +22,7 @@
 
   <form action="">
     <label><strong></strong>Приемлемость:</strong>
-      <select size="1" name="tax">
+      <select id="acceptId" size="1" name="accept">
         {{#each acceptabilityModelArray}}
         <option value="{{description}}"> {{description}}</option>
         {{/each}}
@@ -32,7 +32,7 @@
 
   <form action="">
     <label><strong></strong>Статус:</strong>
-      <select size="1" name="tax">
+      <select id="statusId" size="1" name="status">
         {{#each statusModelArray}}
         <option value="{{description}}"> {{description}}</option>
         {{/each}}
@@ -83,42 +83,11 @@
 
 </div>
 
-<main id="reportView">
-  <table class="report">
-    <tr>
-      <th>Статус</th>
-      <th>Дата создания</th>
-      <th>Наименование риска</th>
-      <th>Описание риска</th>
-      <th>Вид налога</th>
-      <th>Операция или группа операций</th>
-      <th>Способ выявления</th>
-      <th>Источник</th>
-      <th>Частота возникновения в прошлом</th>
-      <th>Вероятность наступления</th>
-      <th>Последствия</th>
-      <th>Уровень риска</th>
-      <th>Соотношение уровня с границей приемлемости </th>
-    </tr>
-    {{#each riskAll}}
-    <tr class="one-risk">
-      <td>{{this.status}}</td>
-      <td>{{this.dataCreate}}</td>
-      <td>{{this.riskName}}</td>
-      <td>{{this.riskDescription}}</td>
-      <td>{{this.taxType}}</td>
-      <td>{{this.riskOperations}}</td>
-      <td>{{this.wayDetection}}</td>
-      <td>{{this.riskSource}}</td>
-      <td>{{this.frequency}}</td>
-      <td>{{this.probability}}</td>
-      <td>{{this.effects}}</td>
-      <td>{{this.level}}</td>
-      <td>{{this.acceptability}}</td>
-    </tr>
-    {{/each}}
-  </table>
-</main>
+<main id="reportView"></main>
 
 <script defer src="/front.js"></script>
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"
+  integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw=="
+  crossorigin="anonymous"></script>

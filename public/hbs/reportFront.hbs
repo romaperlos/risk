@@ -1,37 +1,37 @@
-<main id="reportContent">
-  {{!-- отрисовка отчета в виде таблицы --}}
-  <table class="report">
-    <tr>
-      <th>Статус</th>
-      <th>Дата создания</th>
-      <th>Наименование риска</th>
-      <th>Описание риска</th>
-      <th>Вид налога</th>
-      <th>Операция или группа операций</th>
-      <th>Способ выявления</th>
-      <th>Источник</th>
-      <th>Частота возникновения в прошлом</th>
-      <th>Вероятность наступления</th>
-      <th>Последствия</th>
-      <th>Уровень риска</th>
-      <th>Соотношение уровня с границей приемлемости </th>
-    </tr>
-    {{#each obj}}
-    <tr class="one-risk">
-      <td>{{obj.status}}</td>
-      <td>{{obj.dataCreate}}</td>
-      <td>{{obj.riskName}}</td>
-      <td>{{obj.riskDescription}}</td>
-      <td>{{obj.taxType}}</td>
-      <td>{{obj.riskOperations}}</td>
-      <td>{{obj.wayDetection}}</td>
-      <td>{{obj.riskSource}}</td>
-      <td>{{obj.frequency}}</td>
-      <td>{{obj.probability}}</td>
-      <td>{{obj.effects}}</td>
-      <td>{{obj.level}}</td>
-      <td>{{obj.acceptability}}</td>
-    </tr>
-    {{/each}}
-  </table>
-</main>
+{{!-- <main id="reportContent"> --}}
+{{!-- отрисовка отчета в виде таблицы --}}
+<table class="report">
+  <tr>
+    <th>Статус</th>
+    <th>Дата создания</th>
+    <th>Наименование риска</th>
+    <th>Описание риска</th>
+    <th>Вид налога</th>
+    <th>Операция или группа операций</th>
+    <th>Способ выявления</th>
+    <th>Источник</th>
+    <th>Частота возникновения в прошлом</th>
+    <th>Вероятность наступления</th>
+    <th>Последствия</th>
+    <th>Уровень риска</th>
+    <th>Соотношение уровня с границей приемлемости </th>
+  </tr>
+  {{#each collect}}
+  <tr class="one-risk">
+    <td>{{this.status}}</td>
+    <td>{{this.dataCreate}}</td>
+    <td>{{this.riskName}}</td>
+    <td>{{this.riskDescription}}</td>
+    <td>{{this.taxType}}</td>
+    <td>{{this.riskOperations}}</td>
+    <td>{{this.wayDetection}}</td>
+    <td>{{this.riskSource}}</td>
+    <td>{{this.frequency}}</td>
+    <td>{{this.probability}}</td>
+    <td>{{this.effects}}</td>
+    <td>{{this.level}}</td>
+    <td>{{this.acceptability}}</td>
+  </tr>
+  {{/each}}
+</table>
+{{!-- </main> --}}
