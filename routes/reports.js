@@ -33,4 +33,32 @@ router.get('/', async (req, res, next) => {
   });
 });
 
+router.post('/tax', async (req, res) => {
+  // console.log(req.body);
+  const collect = await riskModel.find({ taxType: req.body.tax });
+  // console.log(taxCollect);
+  res.json({ collect });
+});
+
+router.post('/level', async (req, res) => {
+  // console.log(req.body);
+  const collect = await riskModel.find({ level: req.body.level });
+  // console.log(taxCollect);
+  res.json({ collect });
+});
+
+router.post('/accept', async (req, res) => {
+  // console.log(req.body);
+  const collect = await riskModel.find({ acceptability: req.body.acceptability });
+  // console.log(taxCollect);
+  res.json({ collect });
+});
+
+router.post('/status', async (req, res) => {
+  // console.log(req.body);
+  const collect = await riskModel.find({ status: req.body.status });
+  // console.log(taxCollect);
+  res.json({ collect });
+});
+
 export default router;
