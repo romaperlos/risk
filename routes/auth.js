@@ -57,7 +57,9 @@ router
 router
   .route('/signup')
   // Страница регистрации пользователя
-  .get((req, res) => res.render('signup', { isSignup: true }))
+  .get((req, res) => {
+    res.locals.isAdmin ? res.render('signup') : res.redirect('/')
+  })
   // Регистрация пользователя
   .post(async (req, res) => {
     const { username, password, email, admin } = req.body
@@ -65,7 +67,7 @@ router
       // Мы не храним пароль в БД, только его хэш
       const saltRounds = Number(process.env.SALT_ROUNDS ?? 10)
       const hashedPassword = await bcrypt.hash(password, saltRounds)
-      const user = await User.create({
+      await User.create({
         username,
         password: hashedPassword,
         email,
@@ -76,7 +78,7 @@ router
       logger.error(err)
       return failAuth(res)
     }
-    return res.end()
+    return res.redirect('/')
   })
 
 router.get('/signout', (req, res, next) => {

@@ -40,6 +40,7 @@ app.use(
 
 app.use(userMiddleware)
 app.use(adminMiddleware)
+
 app.use(indexRouter)
 app.use(authRouter)
 app.use('/riskList', riskListRouter) // добавил новый роутер реестра рисков (Антон)
