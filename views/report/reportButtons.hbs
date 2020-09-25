@@ -1,0 +1,91 @@
+<div class="dropdownFilter">
+
+  <button onclick="myFunction()" class="levelButton">Уровень риска</button>
+  <div id="levelContent" class="dropdown-content">
+    <input type="text" placeholder="Поиск..." id="levelInput" onkeyup="filterFunction()">
+    {{#each riskAll}}
+    <a href="">{{this.level}}</a>
+    {{/each}}
+  </div>
+
+  <button onclick="myFunction()" class="levelButton">Приемлемость</button>
+  <div id="aceptContent" class="dropdown-content">
+    <input type="text" placeholder="Поиск..." id="aceptInput" onkeyup="filterFunction()">
+    {{#each riskAll}}
+    <a href="">{{this.acceptability}}</a>
+    {{/each}}
+  </div>
+
+  <button onclick="myFunction()" class="levelButton">Статус</button>
+  <div id="statusContent" class="dropdown-content">
+    <input type="text" placeholder="Поиск..." id="statusInput" onkeyup="filterFunction()">
+    {{#each riskAll}}
+    <a href="">{{this.status}}</a>
+    {{/each}}
+  </div>
+
+  <button onclick="myFunction()" class="levelButton">Тип налога</button>
+  <div id="taxTypeContent" class="dropdown-content">
+    <input type="text" placeholder="Поиск..." id="taxTypeInput" onkeyup="filterFunction()">
+    {{#each riskAll}}
+    <a href="">{{this.taxType}}</a>
+    {{/each}}
+  </div>
+
+  <button onclick="myFunction()" class="levelButton">Дата создания</button>
+  <div id="dataCreateContent" class="dropdown-content">
+    <input type="text" placeholder="Поиск..." id="dataCreateInput" onkeyup="filterFunction()">
+    {{#each riskAll}}
+    <a href="">{{this.dataCreate}}</a>
+    {{/each}}
+  </div>
+
+</div>
+
+<main id="reportView">
+  <table class="report">
+    <tr>
+      <th>Статус</th>
+      <th>Дата создания</th>
+      <th>Наименование риска</th>
+      <th>Описание риска</th>
+      <th>Вид налога</th>
+      <th>Операция или группа операций</th>
+      <th>Способ выявления</th>
+      <th>Источник</th>
+      <th>Частота возникновения в прошлом</th>
+      <th>Вероятность наступления</th>
+      <th>Последствия</th>
+      <th>Уровень риска</th>
+      <th>Соотношение уровня с границей приемлемости </th>
+    </tr>
+    {{#each obj}}
+    <tr class="one-risk">
+      <td>{{this.status}}</td>
+      <td>{{this.dataCreate}}</td>
+      <td>{{this.riskName}}</td>
+      <td>{{this.riskDescription}}</td>
+      <td>{{this.taxType}}</td>
+      <td>{{this.riskOperations}}</td>
+      <td>{{this.wayDetection}}</td>
+      <td>{{this.riskSource}}</td>
+      <td>{{this.frequency}}</td>
+      <td>{{this.probability}}</td>
+      <td>{{this.effects}}</td>
+      <td>{{this.level}}</td>
+      <td>{{this.acceptability}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</main>
+
+{{!-- function myFunction() {
+  let array = document.querySelectorAll(".dropdown-content").classList.toggle("show");
+  for (let i = 0; i < array.length; i += 1) {
+    array[i].classList.toggle("show");
+  }
+}
+
+.show {display:block;} --}}
+
+
