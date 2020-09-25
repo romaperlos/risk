@@ -1,6 +1,55 @@
 <div class="dropdownFilter">
 
-  <button onclick="myFunction()" class="levelButton">Уровень риска</button>
+  <form action="">
+    <label><strong></strong>Вид налога:</strong>
+      <select size="1" name="tax">
+        {{#each taxTypeArray}}
+        <option value="{{description}}"> {{description}}</option>
+        {{/each}}
+      </select>
+    </label>
+  </form>
+
+  <form action="">
+    <label><strong></strong>Уровень риска:</strong>
+      <select size="1" name="tax">
+        {{#each levelModelArray}}
+        <option value="{{description}}"> {{description}}</option>
+        {{/each}}
+      </select>
+    </label>
+  </form>
+
+  <form action="">
+    <label><strong></strong>Приемлемость:</strong>
+      <select size="1" name="tax">
+        {{#each acceptabilityModelArray}}
+        <option value="{{description}}"> {{description}}</option>
+        {{/each}}
+      </select>
+    </label>
+  </form>
+
+  <form action="">
+    <label><strong></strong>Статус:</strong>
+      <select size="1" name="tax">
+        {{#each statusModelArray}}
+        <option value="{{description}}"> {{description}}</option>
+        {{/each}}
+      </select>
+    </label>
+  </form>
+
+
+  {{!-- <button onclick="myFunction()">Тип налога</button>
+  <div id="taxTypeContent" class="dropdown-content">
+    <input type="text" placeholder="Поиск..." id="taxTypeInput" onkeyup="filterFunction()">
+    {{#each riskAll}}
+    <a href="">{{this.taxType}}</a>
+    {{/each}}
+  </div> --}}
+
+  {{!-- <button onclick="myFunction()">Уровень риска</button>
   <div id="levelContent" class="dropdown-content">
     <input type="text" placeholder="Поиск..." id="levelInput" onkeyup="filterFunction()">
     {{#each riskAll}}
@@ -8,7 +57,7 @@
     {{/each}}
   </div>
 
-  <button onclick="myFunction()" class="levelButton">Приемлемость</button>
+  <button onclick="myFunction()">Приемлемость</button>
   <div id="aceptContent" class="dropdown-content">
     <input type="text" placeholder="Поиск..." id="aceptInput" onkeyup="filterFunction()">
     {{#each riskAll}}
@@ -16,7 +65,7 @@
     {{/each}}
   </div>
 
-  <button onclick="myFunction()" class="levelButton">Статус</button>
+  <button onclick="myFunction()">Статус</button>
   <div id="statusContent" class="dropdown-content">
     <input type="text" placeholder="Поиск..." id="statusInput" onkeyup="filterFunction()">
     {{#each riskAll}}
@@ -24,21 +73,13 @@
     {{/each}}
   </div>
 
-  <button onclick="myFunction()" class="levelButton">Тип налога</button>
-  <div id="taxTypeContent" class="dropdown-content">
-    <input type="text" placeholder="Поиск..." id="taxTypeInput" onkeyup="filterFunction()">
-    {{#each riskAll}}
-    <a href="">{{this.taxType}}</a>
-    {{/each}}
-  </div>
-
-  <button onclick="myFunction()" class="levelButton">Дата создания</button>
+  <button onclick="myFunction()">Дата создания</button>
   <div id="dataCreateContent" class="dropdown-content">
     <input type="text" placeholder="Поиск..." id="dataCreateInput" onkeyup="filterFunction()">
     {{#each riskAll}}
     <a href="">{{this.dataCreate}}</a>
     {{/each}}
-  </div>
+  </div> --}}
 
 </div>
 
@@ -59,7 +100,7 @@
       <th>Уровень риска</th>
       <th>Соотношение уровня с границей приемлемости </th>
     </tr>
-    {{#each obj}}
+    {{#each riskAll}}
     <tr class="one-risk">
       <td>{{this.status}}</td>
       <td>{{this.dataCreate}}</td>
@@ -79,13 +120,5 @@
   </table>
 </main>
 
-{{!-- function myFunction() {
-  let array = document.querySelectorAll(".dropdown-content").classList.toggle("show");
-  for (let i = 0; i < array.length; i += 1) {
-    array[i].classList.toggle("show");
-  }
-}
-
-.show {display:block;} --}}
-
-
+<script defer src="/front.js"></script>
+<link rel="stylesheet" href="style.css">
