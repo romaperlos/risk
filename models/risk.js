@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 mongoose.pluralize(null);
 
-const risks = new mongoose.Schema({
+const risk = new mongoose.Schema({
   taxType: { type: String },
   riskName: { type: String, required: true },
   riskDescription: { type: String, required: true },

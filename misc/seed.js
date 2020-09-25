@@ -21,9 +21,9 @@ db
     const wayDetection = ["Опросный лист", "Анализ входящих данных", "Анализ графических данных", "Консультации специалистов", "Инспекционная и ревизионная деятельность", "Неверное распределение доходов по видам"];
 
     const frequencyProbabilityEffects = [
-      { level: 1, description: 'Низкий' },
-      { level: 2, description: 'Средний' },
-      { level: 3, description: 'Высокий' }];
+      { level: 1, description: ['Низкая', 'Низкий', 'Низкие'] },
+      { level: 2, description: ['Средняя', 'Средний', 'Средние'] },
+      { level: 3, description: ['Высокая', 'Высокий', 'Высокие'] }];
 
     const acceptabilityLvl = ['Приемлемый', 'Неприемлемый']
 
@@ -46,19 +46,19 @@ db
     });
 
     const mappedFrequency = frequencyProbabilityEffects.map((obj) => {
-      return new frequencyModel({ level: obj.level, description: obj.description })
+      return new frequencyModel({ level: obj.level, description: obj.description[0] })
     });
 
     const mappedProbability = frequencyProbabilityEffects.map((obj) => {
-      return new probabilityModel({ level: obj.level, description: obj.description })
+      return new probabilityModel({ level: obj.level, description: obj.description[0] })
     });
 
     const mappedEffects = frequencyProbabilityEffects.map((obj) => {
-      return new effectsModel({ level: obj.level, description: obj.description })
+      return new effectsModel({ level: obj.level, description: obj.description[2] })
     });
 
     const mappedLevel = frequencyProbabilityEffects.map((obj) => {
-      return new levelModel({ description: obj.description })
+      return new levelModel({ description: obj.description[1] })
     });
 
     const mappedacceptability = acceptabilityLvl.map((el) => {
