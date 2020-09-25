@@ -1,11 +1,11 @@
-<div class=".container-fluid center col-sm ">
+<div class="logoAndButtons">
   <img src="/images/logo.png" id="logo">
   <script defer src="/signin.js"></script>
   {{#if username}}
-  <button style="background-color: #62393e" type="button" class="btn btn-success"
-    onclick="window.location.href = '/riskList';">Реестр</button>
-  <button style="background-color: #62393e" type="button" class="btn btn-info"
-    onclick="window.location.href = '/report';">Отчёты</button>
+  <div class="button-ind">
+    <button class="buttonClass" type="button" onclick="window.location.href = '/riskList';">Реестр</button>
+    <button class="buttonClass" type="button" onclick="window.location.href = '/reports';">Отчёты</button>
+  </div>
   {{else}}
   <form id="signinForm" method="POST" action="/signin">
     <div class="form-group">
