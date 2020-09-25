@@ -18,6 +18,6 @@ const risk = new mongoose.Schema({
   dataCreate: { type: Date },
 });
 
-const riskModel = mongoose.model('risk', risk);
+const riskModel = mongoose.model('risks', risks);
 
 export default riskModel;
