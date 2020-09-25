@@ -2,7 +2,7 @@ body {
   font-family: 'Podkova', serif
 }
 
-.logoAndButtons {
+.centerForm {
   display: flex;
   justify-items: start;
   flex-direction: column;
@@ -23,7 +23,11 @@ body {
   font-size: 25px;
 }
 
-button {
+#login-group {
+  margin-left: 45px;
+}
+
+.centerForm button {
   background-color: #62393e;
   border-radius: 8px;
   color: white
@@ -52,7 +56,21 @@ td {
 .nav {
   padding: 0 10px;
   background: #62393e;
+  font-weight: bold;
+  font-size: 25px;
 }
+
+.nav-link {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #8d4b53;
+}
+
+ul {}
 
 .show {
   display: block;
